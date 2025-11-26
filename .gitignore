@@ -1,0 +1,10 @@
+__pycache__
+*/__pycache__
+*.pyc
+.pytest_cache
+*/models/
+*/data/
+*.csv
+*.joblib
+*.pth
+*.path
