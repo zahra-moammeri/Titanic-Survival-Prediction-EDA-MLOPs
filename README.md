@@ -85,7 +85,7 @@ after building just run:
 
 ### Feature Engineering
 
-<img src="./backend/plots/corr_heatmap.png">
+<img src="./backend/plots/corr_heatmap.png" width="70%">
 
 As it has been shown, in this correlation plot, calculating Logs of Age and Fare (AgeLog, FareLog) are more correlated than their origins (Age, Fare). I also added HasCabin and HasFamily features.
 
