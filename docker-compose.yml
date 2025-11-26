@@ -1,0 +1,38 @@
+services:
+  backend:
+    build: backend
+    image: e2e-backend:latest
+    ports:
+      - "8200:8000"
+    volumes:
+      - ./backend:/app/backend
+    networks:
+      - titanic_network
+    environment:
+      - ENVIRONMENT=production
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+
+  backend-test:
+    build: backend
+    environment:
+      - ENVIRONMENT=test
+    command: python -m pytest tests/ -v --cov=app --cov-report=html
+    
+  frontend:
+    build: frontend
+    image: e2e-frontend:latest
+    ports: 
+      - "8501:8501"
+    volumes:
+      - ./frontend:/app/frontend
+    depends_on:
+      - backend
+    networks:
+      - titanic_network
+
+networks:
+  titanic_network:
+
+
+
+## how to use: docker-compose up -d --build
